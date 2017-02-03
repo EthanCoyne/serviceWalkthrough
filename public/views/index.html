@@ -13,8 +13,14 @@
 
 
 
-  <main ng-controller="GifController">
+  <main ng-controller="GifController as vm">
+    <img  ng-show="vm.randomGifUrl" ng-model="vm.randomGifUrl" ng-src="{{vm.randomGifUrl}}" alt="">
 
+
+  <h2>SEARCH</h2>
+  <input type="text" ng-model="vm.searchQuery">
+  <button type="submit" ng-click="vm.searchGif(vm.searchQuery)">search</button>
+  <img ng-repeat="gifs in vm.searchGifUrl" ng-show="vm.searchGifUrl" ng-src="{{gifs.images.original.url}}" alt="">
   </main>
   </body>
 </html>
